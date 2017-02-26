@@ -2,6 +2,7 @@ package codeforces;
 
 import java.util.Scanner;
 
+// done
 public class MemoryAndACrow {
 
   public static void main(String[] args) {
