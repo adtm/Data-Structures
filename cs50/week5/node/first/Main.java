@@ -28,7 +28,13 @@ public class Main {
   }
 
   public static void printBackwards(Node list) {
+    if (list == null) return;
 
+    Node head = list;
+    Node tail = list.next;
+
+    printBackwards(tail);
+    System.out.println(head);
   }
 
 }
