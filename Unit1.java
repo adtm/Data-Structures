@@ -11,6 +11,9 @@ public class Unit1 {
     for (int value: copyArray) {
       System.out.print(value + " ");
     }
+
+    System.out.println(sumDigits(123456789));
+
   }
 
   // power( a, b)
@@ -69,5 +72,15 @@ public class Unit1 {
     bigger[bigger.length - 1] = value;
     return bigger;
   }
+
+  private static int sumDigits(int n) {
+    int sum = 0;
+    while ( n > 0 ) {
+      sum += n % 10;
+      n = n / 10;
+    }
+    return sum;
+  }
+
 
 }
