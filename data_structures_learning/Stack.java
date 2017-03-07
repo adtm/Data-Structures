@@ -26,4 +26,8 @@ public class Stack {
     return (int) stack.getFirst();
   }
 
+  public int search(int index) {
+    return (int) stack.get(index);
+  }
+
 }
