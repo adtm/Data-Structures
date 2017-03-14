@@ -13,7 +13,7 @@ public class Tree {
   public boolean checkIfBST(Node root, int min, int max) {
     if (root == null)
       return true;
-    if (root.data < min || max > root.data)
+    if (root.data < min || max < root.data)
       return false;
     return checkIfBST(root.left, min, root.data - 1 ) &
       checkIfBST(root.right, root.data + 1, max);
