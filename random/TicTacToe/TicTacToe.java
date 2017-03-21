@@ -14,6 +14,7 @@ public class TicTacToe {
     this.winner = '-';
 
     this.board = setBoard();
+    this.currentMarker = userMarker;
   }
 
   private static char[] setBoard() {
@@ -42,32 +43,32 @@ public class TicTacToe {
   }
 
   public void printBoard(){
-    for (int i = 0; i < board.length + 1; i++){
+    for (int i = 0; i < board.length; i++){
       if (i % 3 == 0 && i != 0){
         System.out.println();
-        System.out.println("|---------------|");
+        System.out.println("|-------------|");
       }
-      System.out.println("|" + board[i]);
+      System.out.print(" | " + board[i]);
     }
     System.out.println();
   }
 
-  public void printIndexBoard(){
-    for (int i = 0; i < board.length + 1; i++){
+  public static void printIndexBoard(){
+    for (int i = 0; i < 9; i++){
       if (i % 3 == 0 && i != 0){
         System.out.println();
-        System.out.println("|---------------|");
+        System.out.println("|-------------|");
       }
-      System.out.println("|" + board[i + 1]);
+      System.out.print(" | " + (i+1));
     }
     System.out.println();
   }
 
   public boolean isThereAWinner(){
-    boolean diaganolsAndMiddles = rightDi() || leftDi() || middleRow() || secondCol()  &&
+    boolean diaganolsAndMiddles = (rightDi() || leftDi() || middleRow() || secondCol())  &&
       board[4] != '-';
-    boolean topAndFirst = topRow() || firstCol() && board[0] != '-';
-    boolean bottomAndThird = bottomCol() || thirdRow() && board[8] != '-';
+    boolean topAndFirst = (topRow() || firstCol()) && board[0] != '-';
+    boolean bottomAndThird = (bottomCol() || thirdRow()) && board[8] != '-';
     if (diaganolsAndMiddles){
       this.winner = board[4];
     } else if(topAndFirst) {
@@ -108,6 +109,26 @@ public class TicTacToe {
 
   private boolean topRow() {
     return board[0] == board[1] && board[1] == board[2];
+  }
+
+  public boolean isBoardFilled(){
+    for (int i = 0; i < board.length; i++) {
+      if (board[i] == '-'){
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public String gameOver() {
+    boolean hasWinner = isThereAWinner();
+    if (hasWinner) {
+      return "We had a winner! " + this.winner;
+    } else if (isBoardFilled()){
+      return "Draw";
+    } else {
+      return "Not Over!";
+    }
   }
 
 }
