@@ -8,5 +8,10 @@ public class Main {
     binarySearchTree.add(2);
     binarySearchTree.add(29);
     binarySearchTree.traversePreOrder();
+
+    binarySearchTree.findMember(1);
+
+    binarySearchTree.findMin();
+    binarySearchTree.findMax();
   }
 }
