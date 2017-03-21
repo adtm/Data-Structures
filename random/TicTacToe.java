@@ -67,8 +67,7 @@ public class TicTacToe {
     boolean diaganolsAndMiddles = rightDi() || leftDi() || middleRow() || secondCol()  &&
       board[4] != '-';
     boolean topAndFirst = topRow() || firstCol() && board[0] != '-';
-    boolean bottomAndThird = bottom() || thirdCol() && board[8] != '-';
-
+    boolean bottomAndThird = bottomCol() || thirdRow() && board[8] != '-';
     if (diaganolsAndMiddles){
       this.winner = board[4];
     } else if(topAndFirst) {
@@ -77,6 +76,38 @@ public class TicTacToe {
       this.winner = board[8];
     }
     return diaganolsAndMiddles || topAndFirst || bottomAndThird;
+  }
+
+  private boolean leftDi() {
+    return board[0] == board[4] && board[4] == board[8];
+  }
+
+  private boolean rightDi() {
+    return board[2] == board[4] && board[4] == board[6];
+  }
+
+  private boolean bottomCol() {
+    return board[2] == board[5] && board[5] == board[8];
+  }
+
+  private boolean secondCol() {
+    return board[1] == board[4] && board[4] == board[7];
+  }
+
+  private boolean firstCol() {
+    return board[0] == board[3] && board[3] == board[6];
+  }
+
+  private boolean thirdRow() {
+    return board[6] == board[7] && board[7] == board[8];
+  }
+
+  private boolean middleRow() {
+    return board[3] == board[4] && board[4] == board[5];
+  }
+
+  private boolean topRow() {
+    return board[0] == board[1] && board[1] == board[2];
   }
 
 }
