@@ -2,40 +2,48 @@ package data;
 
 public class Main {
   public static void main(String[] args) {
-    LinkedList linkedList = new LinkedList(1);
-    linkedList.push(2);
-    linkedList.push(3);
+    LinkedList linkedList1 = new LinkedList(2);
+    linkedList1.push(5);
+    linkedList1.push(13);
 
-    linkedList.traverse();
-    System.out.println();
-    linkedList.addHead(4);
-    linkedList.traverse();
+    LinkedList linkedList2 = new LinkedList(1);
+    linkedList2.push(4);
+    linkedList2.push(9);
 
-    System.out.println();
-    linkedList.addAfterNode(linkedList.head, 5);
-    linkedList.traverse();
-
-    linkedList.delete(4);
-    linkedList.delete(5);
-    System.out.println();
-    linkedList.traverse();
-
-    linkedList.deleteNode(1);
-    System.out.println();
-    linkedList.traverse();
-
-    System.out.println();
-    linkedList.length();
-
-    System.out.println();
-    linkedList.push(4);
-    linkedList.push(5);
-    linkedList.swap(4,5);
-    linkedList.traverse();
-    System.out.println();
-
-    linkedList.reverse();
-    linkedList.traverse();
+    LinkedList linkedList3 = mergeLists(linkedList1,linkedList2);
+    linkedList3.traverse();
   }
 
+  /*
+  * For Merging Sorted Lists Helper Functions
+  * */
+  private static LinkedList mergeLists(LinkedList l1, LinkedList l2) {
+
+    Node root1 = l1.head;
+    Node root2 = l2.head;
+
+    LinkedList mergeList = new LinkedList();
+
+    while (root1 != null  && root2 != null) {
+      if (root1.data < root2.data) {
+        mergeList.push(root1.data);
+        root1 = root1.next;
+      } else{
+        mergeList.push(root2.data);
+        root2 = root2.next;
+      }
+    }
+
+    while (root1 != null) {
+      mergeList.push(root1.data);
+      root1 = root1.next;
+    }
+
+    while (root2 != null) {
+      mergeList.push(root2.data);
+      root2 = root2.next;
+    }
+
+    return mergeList;
+  }
 }

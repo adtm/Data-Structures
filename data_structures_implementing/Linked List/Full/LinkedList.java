@@ -5,17 +5,28 @@ public class LinkedList {
 
   Node head;
 
+  LinkedList() {
+    this.head = null;
+  }
+
   LinkedList(int new_data) {
     this.head = new Node(new_data);
   }
 
   void push(int new_data) {
 
-    Node thead = head;
-    while (thead.next != null) {
-      thead = thead.next;
+    Node new_node = new Node(new_data);
+    if (head == null) {
+      head = new_node;
+    } else {
+      Node thead = head;
+      while (thead.next != null) {
+        thead = thead.next;
+      }
+      thead.next = new_node;
     }
-    thead.next = new Node(new_data);
+
+
   }
 
   void reverseRecursive(Node head) {
