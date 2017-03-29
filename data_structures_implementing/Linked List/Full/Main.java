@@ -32,6 +32,10 @@ public class Main {
     linkedList.push(5);
     linkedList.swap(4,5);
     linkedList.traverse();
+    System.out.println();
+
+    linkedList.reverse();
+    linkedList.traverse();
   }
 
 }

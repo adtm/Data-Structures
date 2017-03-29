@@ -18,11 +18,11 @@ public class LinkedList {
     thead.next = new Node(new_data);
   }
 
-  void reverseList(Node head) {
+  void reverseRecursive(Node head) {
     if (head == null) {
       return;
     }
-    reverseList(head.next);
+    reverseRecursive(head.next);
     System.out.println(head.data);
   }
 
@@ -110,7 +110,7 @@ public class LinkedList {
 
   void swap(int x, int y) {
 
-    if (x == y ) return;
+    if (x == y) return;
 
     Node currX = head;
     Node prevX = null;
@@ -145,7 +145,20 @@ public class LinkedList {
     Node temp = currX.next;
     currX.next = currY.next;
     currY.next = temp;
- 
+
+  }
+
+  void reverse() {
+    Node prev = null;
+    Node curr = head;
+    Node next;
+    while (curr != null) {
+      next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+    head = prev;
   }
 
 }
