@@ -25,8 +25,6 @@ public class LinkedList {
       }
       thead.next = new_node;
     }
-
-
   }
 
   void reverseRecursive(Node head) {
@@ -54,7 +52,6 @@ public class LinkedList {
     if (head == null) {
       head = new_node;
     }
-
     new_node.next = head;
     this.head = new_node;
   }
@@ -66,7 +63,6 @@ public class LinkedList {
     while (thead != previous) {
       thead = thead.next;
     }
-
     new_node.next = thead.next;
     thead.next = new_node;
   }
@@ -122,41 +118,34 @@ public class LinkedList {
   void swap(int x, int y) {
 
     if (x == y) return;
-
     Node currX = head;
     Node prevX = null;
     while (currX != null && currX.data != x) {
       prevX = currX;
       currX = currX.next;
     }
-
     Node currY = head;
     Node prevY = null;
     while (currY != null && currY.data != y) {
       prevY = currY;
       currY = currY.next;
     }
-
     if (currX == null || currY == null) {
       return;
     }
-
     if (prevX != null) {
       prevX.next = currY;
     } else {
       head = currY;
     }
-
     if (prevY != null) {
       prevY.next = currX;
     } else {
       head = currX;
     }
-
     Node temp = currX.next;
     currX.next = currY.next;
     currY.next = temp;
-
   }
 
   void reverse() {
@@ -172,4 +161,32 @@ public class LinkedList {
     head = prev;
   }
 
+  void rotate(int k) {
+    if (k == 0) {
+      return;
+    }
+
+    int counter = 1;
+    Node curr = head;
+    while (counter != k && curr != null) {
+      curr = curr.next;
+      counter++;
+    }
+
+    if (curr == null) {
+      return;
+    }
+
+    Node kthEl = curr;
+
+    while (curr.next != null) {
+      curr = curr.next;
+    }
+
+    curr.next = head;
+    head = kthEl.next;
+    kthEl.next = null;
+
+
+  }
 }

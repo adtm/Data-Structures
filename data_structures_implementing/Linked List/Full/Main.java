@@ -2,16 +2,23 @@ package data;
 
 public class Main {
   public static void main(String[] args) {
-    LinkedList linkedList1 = new LinkedList(2);
-    linkedList1.push(5);
-    linkedList1.push(13);
+    LinkedList linkedList1 = new LinkedList(10);
+    linkedList1.push(20);
+    linkedList1.push(30);
+    linkedList1.push(40);
+    linkedList1.push(50);
+    linkedList1.push(60);
 
     LinkedList linkedList2 = new LinkedList(1);
     linkedList2.push(4);
     linkedList2.push(9);
 
     LinkedList linkedList3 = mergeLists(linkedList1,linkedList2);
-    linkedList3.traverse();
+    //linkedList3.traverse();
+
+    linkedList1.rotate(4);
+    linkedList1.traverse();
+
   }
 
   /*
