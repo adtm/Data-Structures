@@ -2,22 +2,20 @@ package data;
 
 public class Main {
   public static void main(String[] args) {
-    LinkedList linkedList1 = new LinkedList(10);
-    linkedList1.push(20);
-    linkedList1.push(30);
-    linkedList1.push(40);
-    linkedList1.push(50);
-    linkedList1.push(60);
+    LinkedList linkedList1 = new LinkedList(7);
+    linkedList1.push(5);
+    linkedList1.push(9);
+    linkedList1.push(4);
+    linkedList1.push(6);
 
-    LinkedList linkedList2 = new LinkedList(1);
+    LinkedList linkedList2 = new LinkedList(8);
     linkedList2.push(4);
-    linkedList2.push(9);
 
     LinkedList linkedList3 = mergeLists(linkedList1,linkedList2);
     //linkedList3.traverse();
 
-    linkedList1.rotate(4);
-    linkedList1.traverse();
+    LinkedList linkedList4 = mergeSum(linkedList1, linkedList2);
+    linkedList4.traverse();
 
   }
 
@@ -53,4 +51,36 @@ public class Main {
 
     return mergeList;
   }
+
+  public static LinkedList mergeSum(LinkedList l1, LinkedList l2) {
+
+    LinkedList merge = new LinkedList();
+    int carry = 0;
+    int sum = 0;
+
+    while (l1.head != null || l2.head != null) {
+
+      sum = carry +
+        ((l1.head != null) ? l1.head.data : 0)
+      + ((l2.head != null) ? l2.head.data : 0);
+
+      carry = (sum >= 10) ? 1 : 0;
+      sum = sum % 10;
+      merge.push(sum);
+
+      if (l1.head != null) {
+        l1.head = l1.head.next;
+      }
+
+      if (l2.head != null) {
+        l2.head = l2.head.next;
+      }
+    }
+
+    if (carry >= 1) {
+      merge.push(sum);
+    }
+    return merge;
+  }
+
 }

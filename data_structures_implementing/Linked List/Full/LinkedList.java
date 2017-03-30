@@ -186,7 +186,7 @@ public class LinkedList {
     curr.next = head;
     head = kthEl.next;
     kthEl.next = null;
-
-
   }
+
+
 }
