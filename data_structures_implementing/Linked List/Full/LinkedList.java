@@ -188,5 +188,41 @@ public class LinkedList {
     kthEl.next = null;
   }
 
+  void deleteKth( int k) {
+
+    k -= 1;
+    Node root = this.head;
+
+    int counter = 1;
+    while (root != null) {
+
+      if (counter % k  == 0) {
+        deleteByPosition(head, counter);
+      }
+
+      root = root.next;
+      counter++;
+    }
+  }
+
+  private void deleteByPosition(Node head, int position) {
+
+    Node root = head;
+    if (position == 0) {
+      this.head = root.next;
+      return;
+    }
+
+    for (int i = 0; root != null && i < position - 1; ++i) {
+      root = root.next;
+    }
+
+    if (root == null || root.next == null) {
+      return;
+    }
+    Node next = root.next.next;
+    root.next = next;
+
+  }
 
 }
