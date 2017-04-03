@@ -1,6 +1,4 @@
-/**
- * Created by Tomas on 4/3/2017.
- */
+
 public class Main {
   public static void main(String[] args) {
     LinkedListDouble linkedListDouble = new LinkedListDouble();
@@ -8,10 +6,9 @@ public class Main {
 
 
     System.out.println();
-    linkedListDouble.pushFront(2);
-    linkedListDouble.pushFront(1);
-    linkedListDouble.pushBack(3);
-    linkedListDouble.pushBack(4);
+    linkedListDouble.push(3);
+    linkedListDouble.push(1);
+    linkedListDouble.pushBeforeNode(linkedListDouble.head, 2);
     linkedListDouble.traverse();
   }
 }
