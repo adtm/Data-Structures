@@ -10,5 +10,8 @@ public class Node {
     this.next = null;
   }
 
-
+  Node(int data, Node pointer) {
+    this.data = data;
+    this.next = pointer;
+  }
 }

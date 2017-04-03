@@ -225,4 +225,53 @@ public class LinkedList {
 
   }
 
+  void pushCycle(int new_data, Node pointer) {
+    Node node = new Node(new_data, pointer);
+
+    Node thead = head;
+    while (thead.next != null) {
+      thead = thead.next;
+    }
+    thead.next = node;
+  }
+
+  boolean checkCycle() {
+    Node turtle = head;
+    Node hare = head.next;
+
+    while(hare != null && hare.next != null) {
+      turtle = turtle.next;
+      hare = hare.next.next;
+
+      if(turtle == hare) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  void removeCycle() {
+   Node turtle = head;
+   Node hare = head.next;
+
+   while (hare != null && hare.next != null) {
+     turtle = turtle.next;
+     hare = hare.next.next;
+
+     if (turtle == hare) {
+       break;
+     }
+   }
+
+   if (turtle == hare) {
+     turtle = head;
+     while (turtle != hare.next) {
+       turtle = turtle.next;
+       hare = hare.next;
+     }
+     hare.next = null;
+   }
+
+  }
+
 }

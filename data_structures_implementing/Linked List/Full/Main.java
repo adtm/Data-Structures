@@ -6,21 +6,14 @@ public class Main {
     linkedList1.push(2);
     linkedList1.push(3);
     linkedList1.push(4);
-    linkedList1.push(5);
-    linkedList1.push(6);
+    System.out.println(linkedList1.checkCycle());
 
-    linkedList1.deleteKth(2);
+
+    linkedList1.pushCycle(5,linkedList1.head.next);
+    System.out.println(linkedList1.checkCycle());
+
+    linkedList1.removeCycle();
     linkedList1.traverse();
-
-    LinkedList linkedList2 = new LinkedList(8);
-    linkedList2.push(4);
-
-    LinkedList linkedList3 = mergeLists(linkedList1,linkedList2);
-    //linkedList3.traverse();
-
-    LinkedList linkedList4 = mergeSum(linkedList1, linkedList2);
-    //linkedList4.traverse();
-
 
   }
 
