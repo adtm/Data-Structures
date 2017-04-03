@@ -6,9 +6,14 @@ public class Main {
 
 
     System.out.println();
-    linkedListDouble.push(3);
     linkedListDouble.push(1);
-    linkedListDouble.pushBeforeNode(linkedListDouble.head, 2);
+    linkedListDouble.append(2);
+    linkedListDouble.append(3);
     linkedListDouble.traverse();
+
+    System.out.println();
+    linkedListDouble.reverse();
+    linkedListDouble.traverse();
+
   }
 }

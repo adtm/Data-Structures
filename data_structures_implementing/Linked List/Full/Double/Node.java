@@ -1,7 +1,4 @@
-/**
- * Created by Tomas on 4/3/2017.
- */
-public class Node {
+class Node {
   int data;
   Node next;
   Node prev;
