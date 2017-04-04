@@ -9,10 +9,8 @@ public class Main {
     linkedListDouble.push(1);
     linkedListDouble.append(2);
     linkedListDouble.append(3);
-    linkedListDouble.traverse();
 
-    System.out.println();
-    linkedListDouble.reverse();
+    linkedListDouble.pushAfterNode(linkedListDouble.head.next, 5);
     linkedListDouble.traverse();
 
   }

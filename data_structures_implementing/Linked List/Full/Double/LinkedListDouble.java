@@ -103,7 +103,7 @@ class LinkedListDouble {
     Node thead = head;
     Node temp = null;
     while (thead != null) {
-      temp = thead.prev;    
+      temp = thead.prev;
       thead.prev =  thead.next;
       thead.next = temp;
       thead = thead.prev;
