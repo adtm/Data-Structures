@@ -404,4 +404,59 @@ public class LinkedList {
     return result;
 
   }
+
+  void alternativeNodes () {
+   if (head == null) {
+     return;
+   }
+
+   Node curr = head.next;
+   Node prev = head;
+   while (curr != null && prev != null) {
+     prev.next = curr.next;
+     prev = prev.next;
+     if (prev != null) {
+       curr = prev.next;
+     }
+   }
+  }
+
+  void alternativeNodeSplit () {
+
+    if (head == null) {
+      return;
+    }
+
+    LinkedList alt = new LinkedList();
+    LinkedList even = new LinkedList();
+
+    Node prev = head;
+    Node now = head.next;
+    while (now != null & prev != null) {
+
+      alt.push(prev.data);
+      prev = now.next;
+
+      even.push(now.data);
+      if (now.next != null) {
+        now = now.next.next;
+      }
+
+    }
+
+    Node iter1 = alt.head;
+    while (iter1 != null) {
+      System.out.println(iter1.data);
+      iter1 = iter1.next;
+    }
+
+    System.out.println("_____");
+
+    Node iter2 = even.head;
+    while (iter2 != null) {
+      System.out.println(iter2.data);
+      iter2 = iter2.next;
+    }
+
+  }
 }

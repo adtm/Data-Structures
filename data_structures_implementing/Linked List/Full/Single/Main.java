@@ -5,6 +5,7 @@ public class Main {
     LinkedList linkedList1 = new LinkedList(1);
     linkedList1.push(2);
     linkedList1.push(7);
+    linkedList1.push(9);
 
     LinkedList linkedList2 = new LinkedList(1);
     linkedList2.push(2);
@@ -16,6 +17,9 @@ public class Main {
       System.out.println(intersectionSortedNode.data);
       intersectionSortedNode = intersectionSortedNode.next;
     }
+
+    System.out.println("-------");
+    linkedList1.alternativeNodeSplit();
   }
 
   /*
