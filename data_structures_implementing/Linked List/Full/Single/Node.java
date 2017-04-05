@@ -1,4 +1,4 @@
-package data;
+package single;
 
 
 public class Node {

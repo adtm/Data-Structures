@@ -1,4 +1,4 @@
-package data;
+package single;
 
 
 public class LinkedList {
@@ -274,4 +274,134 @@ public class LinkedList {
 
   }
 
+  void insertInSortedList(int _data) {
+    Node node = new Node(_data);
+    if (head == null || head.data > node.data) {
+      node.next = head;
+      head = node;
+    }
+    Node curr = this.head;
+    while (curr.next != null &&
+      curr.next.data < node.data) {
+      curr = curr.next;
+    }
+      node.next = curr.next;
+      curr.next = node;
+
+
+  }
+
+  void nthNodeFromEnd(int position) {
+    Node ref = head;
+    Node main = head;
+
+    int count = 0;
+    if (head != null) {
+
+      while (count < position) {
+        count++;
+        ref = ref.next;
+      }
+      while (ref != null) {
+        ref = ref.next;
+        main = main.next;
+      }
+      System.out.println(main.data);
+    }
+
+//    if (head != null) {
+//      for (int i = 0 ; ref != null && i < position; i++) {
+//        ref = ref.next;
+//      }
+//
+//      while (ref != null) {
+//        ref = ref.next;
+//        main = main.next;
+//      }
+//
+//      System.out.println(main.data);
+//    }
+  }
+
+  void countOccurencesOfData(int data) {
+    Node curr = head;
+
+    int count = 0;
+    while (curr != null) {
+      if (curr.data == data) {
+        count++;
+      }
+      curr = curr.next;
+    }
+    System.out.println(count + ": " + data);
+  }
+
+  void removeDuplicatesSorted()
+  {
+    Node next = null;
+    Node curr = head;
+    while (curr.next != null) {
+
+
+      if (curr.data == curr.next.data) {
+        next = curr.next.next;
+        curr.next = next;
+
+      } else {
+        curr = curr.next;
+      }
+    }
+  }
+
+  void backToFront() {
+
+    Node prevl = null;
+    Node last = head;
+
+    if (head == null || head.next == null) {
+      return;
+    }
+
+    while (last.next != null) {
+      prevl = last;
+      last = last.next;
+    }
+
+    prevl.next = null;
+    last.next = head;
+    head = last;
+
+  }
+
+  Node intersectionSorted(Node head) {
+
+    Node rootA = this.head;
+    Node rootB = head;
+
+    Node result = null;
+
+    while (rootA != null && rootB != null) {
+      if (rootA.data == rootB.data) {
+        if (result == null) {
+          result = new Node(rootA.data);
+        } else {
+          Node iter = result;
+          while (iter != null) {
+            iter = iter.next;
+          }
+          result.next = new Node(rootA.data);
+        }
+
+        rootA = rootA.next;
+        rootB = rootB.next;
+      } else if (rootA.data > rootB.data) {
+        rootB = rootB.next;
+      } else {
+        rootA = rootA.next;
+      }
+    }
+
+    return result;
+
+  }
 }

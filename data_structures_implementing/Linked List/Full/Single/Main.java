@@ -1,20 +1,21 @@
-package data;
+package single;
 
 public class Main {
   public static void main(String[] args) {
     LinkedList linkedList1 = new LinkedList(1);
     linkedList1.push(2);
-    linkedList1.push(3);
-    linkedList1.push(4);
-    System.out.println(linkedList1.checkCycle());
+    linkedList1.push(7);
 
+    LinkedList linkedList2 = new LinkedList(1);
+    linkedList2.push(2);
+    linkedList2.push(8);
 
-    linkedList1.pushCycle(5,linkedList1.head.next);
-    System.out.println(linkedList1.checkCycle());
-
-    linkedList1.removeCycle();
-    linkedList1.traverse();
-
+    System.out.println();
+    Node intersectionSortedNode = linkedList1.intersectionSorted(linkedList2.head);
+    while (intersectionSortedNode != null) {
+      System.out.println(intersectionSortedNode.data);
+      intersectionSortedNode = intersectionSortedNode.next;
+    }
   }
 
   /*
