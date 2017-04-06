@@ -2,13 +2,11 @@ package array;
 
 public class Main {
   public static void main(String[] args) {
-    int[] arr = {2,3,5,6,0};
+    int[] arr = {2,1,3,3,2};
     int n = arr.length;
 
-    n = insertSorted(4,arr, n-1);
-    for (int el: arr) {
-      System.out.println(el);
-    }
+    int odd = getOddOccurences(arr);
+    System.out.println(odd);
   }
 
   private static int deleteElement(int key, int[] arr, int n ) {
@@ -51,6 +49,14 @@ public class Main {
     }
     arr[i+1] = key;
     return n+1;
+  }
+
+  private static int getOddOccurences(int arr[]) {
+    int res = 0;
+    for(int i = 0 ; i < arr.length; i++) {
+      res = res ^ arr[i];
+    }
+    return res;
   }
 
 }
