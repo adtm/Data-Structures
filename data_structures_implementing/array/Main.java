@@ -154,25 +154,20 @@ public class Main {
 
     int incl = arr[0];
     int excl = 0;
+    int excl_new;
 
-
-    int max = 0;
+    int answer = 0;
     for (int i = 1 ; i < arr.length ; i++) {
 
-      int inclp = incl;
-      int exclp = excl;
+      excl_new = incl > excl ? incl : excl;
+
       incl = excl + arr[i];
-      excl = max(inclp, exclp);
-      if (incl > max ) {
-        max = incl;
-      }
+      excl = excl_new;
+
+      answer = incl > excl ? incl : excl;
     }
-    System.out.println(max);
+    System.out.println(answer);
 
-  }
-
-  private static int max(int inclp, int exclp) {
-    return inclp > exclp ? inclp : exclp;
   }
 
 }
