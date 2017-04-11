@@ -2,10 +2,10 @@ package array;
 
 public class Main {
   public static void main(String[] args) {
-    int[] arr = {5,5,10,40,50,35};
+    int[] arr = {16, 17, 4, 3, 5, 2};
     int n = arr.length;
 
-    maxSumExcludingAdjacent(arr);
+    leadersInArray(arr);
   }
 
   private static int deleteElement(int key, int[] arr, int n) {
@@ -167,6 +167,16 @@ public class Main {
       answer = incl > excl ? incl : excl;
     }
     System.out.println(answer);
+  }
+
+  private static void leadersInArray(int[] arr) {
+    int max = 0; // for demo purposes
+    for(int i = arr.length - 1 ; i > 0 ; i--) {
+      if(arr[i] > max) {
+        max = arr[i];
+        System.out.println(arr[i]);
+      }
+    }
 
   }
 
