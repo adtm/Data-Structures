@@ -2,10 +2,10 @@ package array;
 
 public class Main {
   public static void main(String[] args) {
-    int[] arr = {1, 2, 3, 4, 5};
+    int[] arr = {5,5,10,40,50,35};
     int n = arr.length;
 
-    rotateByAmount(arr, 2);
+    maxSumExcludingAdjacent(arr);
   }
 
   private static int deleteElement(int key, int[] arr, int n) {
@@ -149,4 +149,30 @@ public class Main {
     }
 
   }
+
+  private static void maxSumExcludingAdjacent(int[] arr) {
+
+    int incl = arr[0];
+    int excl = 0;
+
+
+    int max = 0;
+    for (int i = 1 ; i < arr.length ; i++) {
+
+      int inclp = incl;
+      int exclp = excl;
+      incl = excl + arr[i];
+      excl = max(inclp, exclp);
+      if (incl > max ) {
+        max = incl;
+      }
+    }
+    System.out.println(max);
+
+  }
+
+  private static int max(int inclp, int exclp) {
+    return inclp > exclp ? inclp : exclp;
+  }
+
 }
