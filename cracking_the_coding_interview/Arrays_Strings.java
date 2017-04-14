@@ -9,6 +9,29 @@ public class Main {
     //urlify()
     //oneAway();
     //compression();
+    //rotateMatrix();
+  }
+ 
+  // 7 - need improvement
+  private static void rotateMatrix() {
+
+    final int N = 4;
+    int[][] arr = new int[][]{
+      {1,2,3,4},
+      {5,6,7,8},
+      {9,10,11,12},
+      {13,14,15,16}
+    };
+
+    // easy method
+    int[][] rev = new int[N][N];
+    for(int i = 0; i < N; i++) {
+      for(int j = 0 ; j < N; j++) {
+        rev[i][j] = arr[j][i];
+        System.out.print(rev[i][j] + " ");
+      }
+      System.out.println();
+    }
   }
 
   //6 - quite good
