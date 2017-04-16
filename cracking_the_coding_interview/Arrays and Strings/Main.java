@@ -1,17 +1,18 @@
 package c_arr;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Main {
   public static void main(String[] args) {
-    //allUnique();
+    System.out.println(allUnique());
     //permutation();
     //urlify()
     //oneAway();
     //compression();
     //rotateMatrix();
   }
- 
+
   // 7 - need improvement
   private static void rotateMatrix() {
 
@@ -130,12 +131,12 @@ public class Main {
 
   // 1 - needs improvement
   private static boolean allUnique() {
-    String sentence = "dcba";
-    char[] words = sentence.toCharArray();
-
-    Arrays.sort(words);
-    for (int i = 0; i < words.length - 1; i++) {
-      if (words[i] == words[i + 1]) {
+    String sentence = "dcbaa";
+    HashMap <Character, Integer> hashMap = new HashMap<>();
+    for (int i = 0; i < sentence.length(); ++i) {
+      if(!hashMap.containsKey(sentence.charAt(i))) {
+        hashMap.put(sentence.charAt(i), 1);
+      } else {
         return false;
       }
     }
