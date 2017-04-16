@@ -1,23 +1,62 @@
 package c_arr;
 
-import com.sun.xml.internal.fastinfoset.util.CharArray;
-
 import java.util.Arrays;
 import java.util.HashMap;
 
 public class Main {
   public static void main(String[] args) {
     //System.out.println(allUnique());
-    System.out.println(permutation());
+    //System.out.println(permutation());
     //urlify()
     //oneAway();
     //compression();
     //rotateMatrix();
+    zeroMatrix();
   }
 
-  // 7 - need improvement
-  private static void rotateMatrix() {
+  private static void zeroMatrix() {
+    final int N = 3;
+    int[][] arr = new int[][]{
+      {1,2,3},
+      {4,0,5},
+      {5,6,7}
+    };
 
+    boolean[] rows = new boolean[N];
+    boolean[] column = new boolean[N];
+    findZeroElements(rows, column, arr);
+
+    for(int i = 0; i < rows.length; i++)
+      if (rows[i])
+        nulifyRows(arr,i);
+
+    for(int i = 0; i < column.length; i++)
+      if(column[i])
+        nulifyColumn(arr, i);
+  }
+
+  private static void findZeroElements(boolean[] rows, boolean[] column, int[][] arr) {
+    for(int i = 0; i < rows.length; i++)
+      for(int j = 0; j < column.length; j++)
+        if(arr[i][j] == 0) {
+          rows[i] = true;
+          column[i] = true;
+        }
+  }
+
+  private static void nulifyColumn(int[][] arr, int i) {
+    for(int j = 0; j < arr[0].length; j++)
+      arr[j][i] = 0;
+  }
+
+  private static void nulifyRows(int[][] arr, int i) {
+    for(int j = 0; j < arr.length; j++)
+      arr[i][j] = 0;
+  }
+
+
+  // 7 - can I do in place?
+  private static void rotateMatrix() {
     final int N = 4;
     int[][] arr = new int[][]{
       {1,2,3,4},
@@ -26,18 +65,15 @@ public class Main {
       {13,14,15,16}
     };
 
-    // easy method
     int[][] rev = new int[N][N];
     for(int i = 0; i < N; i++) {
       for(int j = 0 ; j < N; j++) {
-        rev[i][j] = arr[j][i];
-        System.out.print(rev[i][j] + " ");
+        rev[j][N-i-1] = arr[i][j];
       }
-      System.out.println();
     }
   }
 
-  //6 - quite good
+  //6 - looks good
   private static String compression() {
     String sentence = "aabcccccaaa ";
 
@@ -83,7 +119,7 @@ public class Main {
 
   }
 
-  //3 - quite good
+  //3 - looks good
   private static String urlify() {
     String sentence = "Mr John Smith";
     char[] word = sentence.toCharArray();
@@ -133,7 +169,7 @@ public class Main {
     return true;
   }
 
-  // 1 - improved
+  //1 - improved
   private static boolean allUnique() {
     String sentence = "dcbaa";
     HashMap <Character, Integer> hashMap = new HashMap<>();
