@@ -1,12 +1,14 @@
 package c_arr;
 
+import com.sun.xml.internal.fastinfoset.util.CharArray;
+
 import java.util.Arrays;
 import java.util.HashMap;
 
 public class Main {
   public static void main(String[] args) {
-    System.out.println(allUnique());
-    //permutation();
+    //System.out.println(allUnique());
+    System.out.println(permutation());
     //urlify()
     //oneAway();
     //compression();
@@ -110,26 +112,28 @@ public class Main {
     }
   }
 
-  //2 - quite good
+  //2 - improved
   private static boolean permutation() {
-    String a = "Cow";
-    String b = "woC";
+    String a = "Doge";
+    String b = "Dogs";
 
-    int firstLength = a.length();
-    int secondLength = b.length();
-
-    if (firstLength != secondLength) {
+    if (a.length() != b.length()) {
       return false;
     }
-    for (int i = 0; i < firstLength; i++) {
-      if (a.indexOf(i) != b.indexOf(firstLength - i)) {
+
+    int[] letters = new int[256];
+    for(char el: a.toCharArray())
+      letters[el]++;
+
+    for(int i = 0; i < b.length(); ++i) {
+      int c = (int) b.charAt(i);
+      if( --letters[c] < 0)
         return false;
-      }
     }
     return true;
   }
 
-  // 1 - needs improvement
+  // 1 - improved
   private static boolean allUnique() {
     String sentence = "dcbaa";
     HashMap <Character, Integer> hashMap = new HashMap<>();
@@ -142,5 +146,4 @@ public class Main {
     }
     return true;
   }
-
 }
