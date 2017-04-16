@@ -1,6 +1,5 @@
 package c_arr;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Main {
@@ -11,9 +10,16 @@ public class Main {
     //oneAway();
     //compression();
     //rotateMatrix();
-    zeroMatrix();
+    //zeroMatrix();
+    //System.out.println(rotationCheck("cow", "owc"));
   }
 
+  // 9 - looks good
+  private static boolean rotationCheck(String a, String b) {
+    return (a.length() == b.length() && (b+b).contains(a));
+  }
+
+  //8 - looks ok
   private static void zeroMatrix() {
     final int N = 3;
     int[][] arr = new int[][]{
