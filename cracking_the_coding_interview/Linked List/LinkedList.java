@@ -2,8 +2,7 @@ package c_linked_list;
 
 
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.Stack;
 
 public class LinkedList {
 
@@ -60,11 +59,7 @@ public class LinkedList {
       curr = curr.next;
     }
   }
-
-
-
   void kthFromTail (Node head, int k) {
-
     Node curr = head;
     for (int i = 0; i < k && curr.next != null; i++) {
       curr = curr.next;
@@ -78,5 +73,27 @@ public class LinkedList {
     System.out.println(prev.data);
   }
 
+  void deleteMiddleNode (Node delete_node) {
+    delete_node.data = delete_node.next.data;
+    delete_node.next = delete_node.next.next;
+  }
+
+  boolean palindrome (Node head) {
+    Node curr = head;
+    Stack<Integer> stack = new Stack<>();
+    while (curr != null) {
+      stack.push(curr.data);
+      curr = curr.next;
+    }
+
+    curr = head;
+    while (curr != null) {
+      if (curr.data != stack.pop())
+        return false;
+      curr = curr.next;
+    }
+    return true;
+
+  }
 
 }
