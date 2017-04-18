@@ -62,4 +62,21 @@ public class LinkedList {
   }
 
 
+
+  void kthFromTail (Node head, int k) {
+
+    Node curr = head;
+    for (int i = 0; i < k && curr.next != null; i++) {
+      curr = curr.next;
+    }
+
+    Node prev = head;
+    while (curr.next != null && prev.next != null) {
+      prev = prev.next;
+      curr = curr.next;
+    }
+    System.out.println(prev.data);
+  }
+
+
 }
