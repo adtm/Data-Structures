@@ -3,15 +3,11 @@ package c_linked_list;
 
 public class Main {
   public static void main(String[] args) {
-    LinkedList l1 = new LinkedList(9);
-    l1.add(7);
-    l1.add(9);
+    LinkedList l1 = new LinkedList(1);
+    l1.add(2);
+    l1.add(3, l1.head.next);
 
-    LinkedList l2 = new LinkedList(6);
-    l2.add(8);
-    l2.add(5);
-
-    System.out.println(l1.palindrome(l1.head));
+    System.out.println(l1.findCircularStart(l1));
   }
 
   private static void sumList(LinkedList l1, LinkedList l2) {

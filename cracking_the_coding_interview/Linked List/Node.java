@@ -10,6 +10,12 @@ public class Node {
 
   Node(int data) {
     this.data = data;
-    next = null;
+    this.next = null;
   }
+
+  Node(int data, Node pointer) {
+    this.data = data;
+    this.next = pointer;
+  }
+
 }
