@@ -2,48 +2,53 @@ package g_stack;
 
 class TwoStacks {
 
-  int top1;
-  int top2;
-  int[] arr;
-
+  int size;
+  int top1, top2;
+  int arr[];
 
   TwoStacks(int size) {
-    this.top1 = -1;
-    this.top2 = (size);
-    this.arr = new int[size];
+    this.size = size;
+    arr = new int[size];
+    top1 = -1;
+    top2 = size;
   }
 
-  boolean push1(int value) {
+  void push1(int el) {
     if (top1 < top2 - 1) {
-      arr[++top1] = value;
-      return true;
+      arr[++top1] = el;
     } else {
       System.out.println("Stack Overflow");
-      return false;
     }
   }
 
-  boolean push2(int value) {
+  void push2(int el) {
     if (top1 < top2 - 1) {
-      arr[--top2] = value;
-      return true;
+      arr[--top2] = el;
     } else {
       System.out.println("Stack Overflow");
-      return false;
     }
   }
 
-  // lower bound
   int pop1() {
-    return arr[top1--];
+    if (top1 >= 0) {
+      int x = arr[top1];
+      top1--;
+      return x;
+    } else {
+      System.out.println("Stack Underflow");
+      return -1;
+    }
   }
 
   int pop2() {
-    return arr[top2++];
+    if (top2 < size) {
+      int x = arr[top2];
+      --top2;
+      return x;
+    } else {
+      System.out.println("Stack Underflow");
+      return -1;
+    }
   }
-
-
-
-
 
 }
